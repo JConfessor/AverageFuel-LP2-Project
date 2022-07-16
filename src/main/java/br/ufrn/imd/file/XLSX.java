@@ -1,6 +1,7 @@
 package br.ufrn.imd.file;
 
 import br.ufrn.imd.vehicle.EscortVehicle;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
@@ -34,22 +35,29 @@ public class XLSX {
         this.evaluator = WB.getCreationHelper().createFormulaEvaluator();
     }
 
-    public int readXLSX() throws IOException {
+    public Map readXLSX() throws IOException {
         int denyHeader = 0;
         Map<String, EscortVehicle> ListEscortVehicle = new HashMap<>();
-        for(Row r: SH){
-            if(denyHeader == 0){
+
+        List<String> Forbidden = new ArrayList<>(Arrays.asList("PROPRIA", "ND", ""));
+
+        for(Row r: SH) {
+            if (denyHeader == 0) {
                 denyHeader += 1;
-            }else{
-                EscortVehicle EVehicle = new EscortVehicle();
-                EVehicle.setLicensePlate(r.getCell(4).toString());
-                EVehicle.setVehicleModel(r.getCell(6).toString());
-                EVehicle.setLicensePlate(r.getCell(4).toString());
+            } else {
+                String LicensePlate = r.getCell(4).toString();
+                String VehicleModel = r.getCell(6).toString();
+                String FleetNumber = r.getCell(7).toString();
+
+                if(!Forbidden.contains(FleetNumber)){
+                    EscortVehicle EVehicle = new EscortVehicle(LicensePlate, VehicleModel, FleetNumber);
+                    ListEscortVehicle.put(LicensePlate, EVehicle);
+                }
             }
         }
 
         WB.close();
-        return 0;
+        return ListEscortVehicle;
 
     }
 }

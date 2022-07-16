@@ -1,50 +1,34 @@
 package br.ufrn.imd.vehicle;
 
-public class EscortVehicle {
-    private String licensePlate;
+public class EscortVehicle implements Vehicle{
+    private final String licensePlate;
     private String vehicleModel;
-    private int fleetNumber;
+    private final int fleetNumber;
     private double liters = 0;
     private double averageLtCost = 0;
     private int monthlyOdometer = 0;
     private double totalCost = 0;
 
-    EscortVehicle(String licensePlate, String vehicleModel, int fleetNumber){
+    // case int fleet number
+    public EscortVehicle(String licensePlate, String vehicleModel, int fleetNumber){
         this.licensePlate = licensePlate;
         this.vehicleModel = vehicleModel;
         this.fleetNumber = fleetNumber;
     }
 
-
-
-    public String getLicensePlate() {
-        return licensePlate;
-    }
-
-    public void setLicensePlate(String licensePlate) {
+    // case string fleet number
+    public EscortVehicle(String licensePlate, String vehicleModel, String fleetNumber){
         this.licensePlate = licensePlate;
-    }
-
-    public String getVehicleModel() {
-        return vehicleModel;
-    }
-
-    public void setVehicleModel(String vehicleModel) {
         this.vehicleModel = vehicleModel;
+        this.fleetNumber = Integer.parseInt(fleetNumber);
     }
 
-    public int getFleetNumber() {
-        return fleetNumber;
-    }
+    @Override
+    public String getLicensePlate(){return licensePlate;}
 
-    public void setFleetNumber(int fleetNumber) {
-        this.fleetNumber = fleetNumber;
-    }
+    public int getFleetNumber(){return fleetNumber;}
 
-
-    public double getLiters() {
-        return liters;
-    }
+    public double getLiters() {return liters;}
 
     public void setLiters(double liters) {
         this.liters += liters;
