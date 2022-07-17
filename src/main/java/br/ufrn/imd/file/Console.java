@@ -10,10 +10,10 @@ public class Console {
             EscortVehicle ev = (EscortVehicle) m.get(id);
 
             System.out.println("/// " + ev.getFleetNumber() + " - " + ev.getLicensePlate() + " ///");
-            System.out.println("LITERS: " + ev.getLiters());
-            System.out.println("AVG LT COST: " + ev.getAverageLtCost());
+            System.out.println(String.format("LITERS: %,.2f" , ev.getLiters()));
+            System.out.println(String.format("AVG LT COST: %,.2f", ev.getAverageLtCost()));
             System.out.println("MONTHLY ODOMETER: " + ev.getMonthlyOdometer());
-            System.out.println("TOTAL COST: " + ev.getTotalCost());
+            System.out.println(String.format("TOTAL COST: %,.2f", ev.getTotalCost()));
             System.out.println();
         }
     }

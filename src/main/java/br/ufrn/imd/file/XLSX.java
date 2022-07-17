@@ -47,8 +47,21 @@ public class XLSX {
                 EscortVehicle EVehicle = new EscortVehicle(r.getCell(4).toString(), r.getCell(6).toString(), r.getCell(7).toString());
                 ListEscortVehicle.put(r.getCell(4).toString(), EVehicle);
             }else{
-                System.out.println("Error");
+                System.out.println("Error 1");
             }
+        }
+
+        for(Row r: SH) {
+            if (r.getRowNum() > 1 && !Forbidden.contains(r.getCell(7).toString())) {
+                EscortVehicle EVehicle = ListEscortVehicle.get(r.getCell(4).toString());
+                EVehicle.setMonthlyOdometer((int) r.getCell(16).getNumericCellValue());
+                EVehicle.setLiters(r.getCell(13).getNumericCellValue());
+                EVehicle.setTotalCost(r.getCell(18).getNumericCellValue());
+                EVehicle.setAverageLtCost(0);
+            }else{
+                System.out.println("Error 2");
+            }
+
         }
 
         WB.close();
