@@ -31,6 +31,9 @@ public class EscortVehicle implements Vehicle{
     @Override
     public String getLicensePlate(){return licensePlate;}
 
+    @Override
+    public String getVehicleModel(){return vehicleModel;}
+
     public int getFleetNumber(){return fleetNumber;}
 
     public double getLiters() {return liters;}
