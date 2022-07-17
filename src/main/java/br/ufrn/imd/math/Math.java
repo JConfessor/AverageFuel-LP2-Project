@@ -6,6 +6,9 @@ public class Math {
         return TotalCost/TotalLiters;
     }
 
+    public double CalcKmPerLiter(double TotalLiters, int KmsTraveled){
+        return KmsTraveled/TotalLiters;
+    }
 
 
 

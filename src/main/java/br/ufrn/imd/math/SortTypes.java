@@ -4,5 +4,6 @@ public enum SortTypes {
     FLEET(),
     LITERS(),
     TOTALCOST(),
-    AVGLTCOST();
+    AVGLTCOST(),
+    KMPERLITER()
 }

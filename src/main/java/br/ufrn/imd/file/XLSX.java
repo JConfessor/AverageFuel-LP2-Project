@@ -1,24 +1,16 @@
 package br.ufrn.imd.file;
 
 import br.ufrn.imd.vehicle.EscortVehicle;
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellBase;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import javax.lang.model.element.ElementVisitor;
 import java.io.FileInputStream;
 import java.io.IOException;
-
-import java.sql.ClientInfoStatus;
 import java.util.*;
 
 public class XLSX {
     private final FileInputStream FIS;
-    private FormulaEvaluator evaluator;
     private XSSFSheet SH;
     private XSSFWorkbook WB;
 
@@ -27,14 +19,9 @@ public class XLSX {
       openXLSX();
     }
     private void openXLSX() throws IOException{
-        // Creating XSSF workbook
-        this.WB = new XSSFWorkbook(this.FIS);
+        this.WB = new XSSFWorkbook(this.FIS);   // Creating XSSF workbook
 
-        // Creating sheet
-        this.SH = this.WB.getSheetAt(0);
-
-        // Evaluating sheet
-        this.evaluator = WB.getCreationHelper().createFormulaEvaluator();
+        this.SH = this.WB.getSheetAt(0);    // Creating sheet
     }
 
     public Map readXLSX() throws IOException {

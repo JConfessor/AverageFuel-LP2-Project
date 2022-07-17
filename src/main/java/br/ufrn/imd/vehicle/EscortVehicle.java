@@ -6,10 +6,11 @@ public class EscortVehicle implements Vehicle{
 
 
     private final String licensePlate;
-    private String vehicleModel;
+    private final String vehicleModel;
     private final int fleetNumber;
     private double liters = 0;
     private double averageLtCost = 0;
+    private double kmPerLiter = 0;
     private int monthlyOdometer = 0;
     private double totalCost = 0;
 
@@ -40,6 +41,10 @@ public class EscortVehicle implements Vehicle{
 
     public double getAverageLtCost() {
         return averageLtCost = Calculator.CalcAverageLTCost(this.totalCost, this.liters);
+    }
+
+    public double getKmPerLiter(){
+        return kmPerLiter = Calculator.CalcKmPerLiter(this.liters, this.monthlyOdometer);
     }
 
     public int getMonthlyOdometer() {
