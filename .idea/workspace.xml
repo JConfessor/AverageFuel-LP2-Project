@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3eeecd7-ba78-404e-b9b6-e4971357efcf" name="Changes" comment="feat: Added list sorting in Console.java">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/math/Math.java" afterDir="false" />
+    <list default="true" id="c3eeecd7-ba78-404e-b9b6-e4971357efcf" name="Changes" comment="feat: Added Math package, added average cost/liter calculation.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/math/Sort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/math/SortTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/ui/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/file/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/file/Console.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/file/XLSX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/file/XLSX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/vehicle/EscortVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/vehicle/EscortVehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +87,7 @@
       <workItem from="1657908364555" duration="24000" />
       <workItem from="1657908859271" duration="1080000" />
       <workItem from="1657934595171" duration="803000" />
-      <workItem from="1658080556253" duration="7464000" />
+      <workItem from="1658080556253" duration="12910000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Small fixes in general">
       <created>1658075711049</created>
@@ -109,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658085634674</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: Added Math package, added average cost/liter calculation.">
+      <created>1658088226930</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658088226930</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +139,7 @@
     <MESSAGE value="feat: Small fixes in general" />
     <MESSAGE value="feat: Added evaluation, fixed Console.java formatting." />
     <MESSAGE value="feat: Added list sorting in Console.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Added list sorting in Console.java" />
+    <MESSAGE value="feat: Added Math package, added average cost/liter calculation." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Added Math package, added average cost/liter calculation." />
   </component>
 </project>

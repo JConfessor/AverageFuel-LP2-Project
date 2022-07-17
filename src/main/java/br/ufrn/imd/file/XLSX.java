@@ -28,7 +28,11 @@ public class XLSX {
     }
     private void openXLSX() throws IOException{
         // Creating XSSF workbook
-        this.WB = new XSSFWorkbook();
+        this.WB = new XSSFWorkbook(this.FIS);
+
+        // Creating sheet
+        this.SH = this.WB.getSheetAt(0);
+
         // Evaluating sheet
         this.evaluator = WB.getCreationHelper().createFormulaEvaluator();
     }
@@ -42,8 +46,6 @@ public class XLSX {
             if (r.getRowNum() > 1 && !Forbidden.contains(r.getCell(7).toString())) {
                 EscortVehicle EVehicle = new EscortVehicle(r.getCell(4).toString(), r.getCell(6).toString(), r.getCell(7).toString());
                 ListEscortVehicle.put(r.getCell(4).toString(), EVehicle);
-            }else{
-                System.out.println("Error 1");
             }
         }
 
@@ -53,10 +55,7 @@ public class XLSX {
                 EVehicle.setMonthlyOdometer((int) r.getCell(16).getNumericCellValue());
                 EVehicle.setLiters(r.getCell(13).getNumericCellValue());
                 EVehicle.setTotalCost(r.getCell(18).getNumericCellValue());
-            }else{
-                System.out.println("Error 2");
             }
-
         }
 
         WB.close();
