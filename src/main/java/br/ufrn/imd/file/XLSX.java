@@ -3,6 +3,7 @@ package br.ufrn.imd.file;
 import br.ufrn.imd.vehicle.EscortVehicle;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellBase;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -12,6 +13,7 @@ import javax.lang.model.element.ElementVisitor;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import java.sql.ClientInfoStatus;
 import java.util.*;
 
 public class XLSX {
@@ -36,23 +38,16 @@ public class XLSX {
     }
 
     public Map readXLSX() throws IOException {
-        int denyHeader = 0;
         Map<String, EscortVehicle> ListEscortVehicle = new HashMap<>();
 
         List<String> Forbidden = new ArrayList<>(Arrays.asList("PROPRIA", "ND", ""));
 
         for(Row r: SH) {
-            if (denyHeader == 0) {
-                denyHeader += 1;
-            } else {
-                String LicensePlate = r.getCell(4).toString();
-                String VehicleModel = r.getCell(6).toString();
-                String FleetNumber = r.getCell(7).toString();
-
-                if(!Forbidden.contains(FleetNumber)){
-                    EscortVehicle EVehicle = new EscortVehicle(LicensePlate, VehicleModel, FleetNumber);
-                    ListEscortVehicle.put(LicensePlate, EVehicle);
-                }
+            if (r.getRowNum() > 1 && !Forbidden.contains(r.getCell(7).toString())) {
+                EscortVehicle EVehicle = new EscortVehicle(r.getCell(4).toString(), r.getCell(6).toString(), r.getCell(7).toString());
+                ListEscortVehicle.put(r.getCell(4).toString(), EVehicle);
+            }else{
+                System.out.println("Error");
             }
         }
 

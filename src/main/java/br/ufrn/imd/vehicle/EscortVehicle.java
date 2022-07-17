@@ -47,7 +47,7 @@ public class EscortVehicle implements Vehicle{
     }
 
     public void setMonthlyOdometer(int monthlyOdometer) {
-        this.monthlyOdometer = monthlyOdometer;
+        this.monthlyOdometer += monthlyOdometer;
     }
 
     public double getTotalCost() {
@@ -55,7 +55,7 @@ public class EscortVehicle implements Vehicle{
     }
 
     public void setTotalCost(double totalCost) {
-        this.totalCost = totalCost;
+        this.totalCost += totalCost;
     }
 
 
