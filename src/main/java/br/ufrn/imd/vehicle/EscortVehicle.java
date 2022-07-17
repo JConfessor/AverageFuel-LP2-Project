@@ -1,6 +1,10 @@
 package br.ufrn.imd.vehicle;
+import br.ufrn.imd.math.Math;
 
 public class EscortVehicle implements Vehicle{
+    Math Calculator = new Math();
+
+
     private final String licensePlate;
     private String vehicleModel;
     private final int fleetNumber;
@@ -35,11 +39,7 @@ public class EscortVehicle implements Vehicle{
     }
 
     public double getAverageLtCost() {
-        return averageLtCost;
-    }
-
-    public void setAverageLtCost(double averageLtCost) {
-        this.averageLtCost += averageLtCost;
+        return averageLtCost = Calculator.CalcAverageLTCost(this.totalCost, this.liters);
     }
 
     public int getMonthlyOdometer() {

@@ -28,11 +28,7 @@ public class XLSX {
     }
     private void openXLSX() throws IOException{
         // Creating XSSF workbook
-        this.WB = new XSSFWorkbook(FIS);
-
-        // Creating sheet
-        this.SH =  WB.getSheetAt(0);
-
+        this.WB = new XSSFWorkbook();
         // Evaluating sheet
         this.evaluator = WB.getCreationHelper().createFormulaEvaluator();
     }
@@ -57,7 +53,6 @@ public class XLSX {
                 EVehicle.setMonthlyOdometer((int) r.getCell(16).getNumericCellValue());
                 EVehicle.setLiters(r.getCell(13).getNumericCellValue());
                 EVehicle.setTotalCost(r.getCell(18).getNumericCellValue());
-                EVehicle.setAverageLtCost(0);
             }else{
                 System.out.println("Error 2");
             }
