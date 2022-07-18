@@ -1,20 +1,30 @@
 package br.ufrn.imd;
 
 // Local
-import br.ufrn.imd.file.XLSX;
-import br.ufrn.imd.file.Console;
-import br.ufrn.imd.math.SortTypes;
 
 // Java
+import br.ufrn.imd.ui.UI;
+
 import java.io.IOException;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        XLSX reader = new XLSX("./src/Resource/Test1.xlsx");
-        var escortvehicles = reader.readXLSX();
+//        JFileChooser FC = new JFileChooser();
+//        int returnVal = FC.showOpenDialog(null);
+//        if (returnVal == JFileChooser.APPROVE_OPTION) {
+//            File f = FC.getSelectedFile();
+//
+//
+//            XLSX reader = new XLSX(f.getPath());
+//            var escortvehicles = reader.readXLSX();
+//
+//
+//            Console TestConsole = new Console();
+//            TestConsole.PrintMap(escortvehicles, -1, SortTypes.FLEET, 1);
+//        }else{
+//            System.out.printf("No file was selected.");
+//        }
 
-
-        Console TestConsole = new Console();
-        TestConsole.PrintMap(escortvehicles, -1, SortTypes.FLEET, 1);
+        UI gui = new UI();
     }
 }
