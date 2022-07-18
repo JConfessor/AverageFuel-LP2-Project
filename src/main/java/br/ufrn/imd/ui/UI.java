@@ -80,23 +80,23 @@ public class UI implements ActionListener {
     private void SecondUI(){
         JLabel title = new JLabel();
         title.setIcon(logo);
-        title.setHorizontalAlignment(JLabel.LEFT);
+        title.setHorizontalAlignment(JLabel.CENTER);
         title.setVerticalTextPosition(JLabel.TOP);
         title.setVerticalAlignment(JLabel.TOP);
         title.setForeground(new Color(0xFFFFFF));
         title.setFont(new Font("Arial", Font.BOLD, 150));
         title.setIconTextGap(100);
 
-        JButton CFA = CreateButton("Compile Fleet Ascending", -1, SortTypes.FLEET, 1, 100, 600, 300, 50);
-        JButton CFD = CreateButton("Compile Fleet Descending", -1, SortTypes.FLEET, -1, 800, 600, 300, 50);
-        JButton CLA = CreateButton("Compile Liter Ascending", -1, SortTypes.LITERS, 1, 100, 500, 300, 50);
-        JButton CLD = CreateButton("Compile Liter Descending", -1, SortTypes.LITERS, -1,800 , 500, 300, 50);
-        JButton CTCA = CreateButton("Compile Total Cost Ascending", -1, SortTypes.TOTALCOST, 1, 100, 400, 300, 50);
-        JButton CTCD = CreateButton("Compile Total Cost Descending", -1, SortTypes.TOTALCOST, -1,800 , 400, 300, 50);
-        JButton CACA = CreateButton("Compile Average LT Cost Ascending", -1, SortTypes.AVGLTCOST, 1, 100, 300, 300, 50);
-        JButton CACD = CreateButton("Compile Average LT Cost Descending", -1, SortTypes.AVGLTCOST, -1,800 , 300, 300, 50);
-        JButton CKLA = CreateButton("Compile Km Per Liter Ascending", -1, SortTypes.KMPERLITER, 1, 100, 500, 200, 50);
-        JButton CKLD = CreateButton("Compile Km Per Liter Descending", -1, SortTypes.KMPERLITER, -1,800 , 500, 200, 50);
+        JButton CFA = CreateButton("Compile Fleet Ascending", -1, SortTypes.FLEET, 1, 100, 100, 325, 50);
+        JButton CFD = CreateButton("Compile Fleet Descending", -1, SortTypes.FLEET, -1, 800, 100, 325, 50);
+        JButton CLA = CreateButton("Compile Liter Ascending", -1, SortTypes.LITERS, 1, 100, 200, 325, 50);
+        JButton CLD = CreateButton("Compile Liter Descending", -1, SortTypes.LITERS, -1,800 , 200, 325, 50);
+        JButton CTCA = CreateButton("Compile Total Cost Ascending", -1, SortTypes.TOTALCOST, 1, 100, 300, 325, 50);
+        JButton CTCD = CreateButton("Compile Total Cost Descending", -1, SortTypes.TOTALCOST, -1,800 , 300, 325, 50);
+        JButton CACA = CreateButton("Compile Average LT Cost Ascending", -1, SortTypes.AVGLTCOST, 1, 100, 400, 325, 50);
+        JButton CACD = CreateButton("Compile Average LT Cost Descending", -1, SortTypes.AVGLTCOST, -1,800 , 400, 325, 50);
+        JButton CKLA = CreateButton("Compile Km Per Liter Ascending", -1, SortTypes.KMPERLITER, 1, 100, 500, 325, 50);
+        JButton CKLD = CreateButton("Compile Km Per Liter Descending", -1, SortTypes.KMPERLITER, -1,800 , 500, 325, 50);
 
 
 
