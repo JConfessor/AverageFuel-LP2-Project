@@ -12,8 +12,7 @@ public class Console {
 
     public void PrintMap(Map m, int amountToPrint, SortTypes sortingType, int SortOrder) {
         Sort Sorter = new Sort();
-        ClearConsole();
-        System.out.println("C L E A R");
+        //ClearConsole();
         for (EscortVehicle ev : Sorter.Sort(m, sortingType, SortOrder)) {
             if (amountToPrint == 0) {
                 break;

@@ -43,11 +43,13 @@ public class EscortVehicle implements Vehicle{
     }
 
     public double getAverageLtCost() {
-        return averageLtCost = Calculator.CalcAverageLTCost(this.totalCost, this.liters);
+        averageLtCost = Calculator.CalcAverageLTCost(this.totalCost, this.liters);
+        return averageLtCost;
     }
 
     public double getKmPerLiter(){
-        return kmPerLiter = Calculator.CalcKmPerLiter(this.liters, this.monthlyOdometer);
+        kmPerLiter = Calculator.CalcKmPerLiter(this.liters, this.monthlyOdometer);
+        return kmPerLiter;
     }
 
     public int getMonthlyOdometer() {

@@ -19,7 +19,8 @@ public class UI implements ActionListener {
 
 
     private String path;
-    //private SortTypes SELECTED_TYPE;
+    private int amnt = -1;
+    private JTextField amountInput;
     JFrame frame;
     JFrame secondFrame;
     public UI(){
@@ -64,7 +65,7 @@ public class UI implements ActionListener {
         btn.setBounds(x, y, w, h);
         btn.addActionListener(e -> {
             try {
-                Compile(CAmount, CTYPE, CSortOrder);
+                Compile(amnt, CTYPE, CSortOrder);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -87,18 +88,37 @@ public class UI implements ActionListener {
         title.setFont(new Font("Arial", Font.BOLD, 150));
         title.setIconTextGap(100);
 
-        JButton CFA = CreateButton("Compile Fleet Ascending", -1, SortTypes.FLEET, 1, 100, 100, 325, 50);
-        JButton CFD = CreateButton("Compile Fleet Descending", -1, SortTypes.FLEET, -1, 800, 100, 325, 50);
-        JButton CLA = CreateButton("Compile Liter Ascending", -1, SortTypes.LITERS, 1, 100, 200, 325, 50);
-        JButton CLD = CreateButton("Compile Liter Descending", -1, SortTypes.LITERS, -1,800 , 200, 325, 50);
-        JButton CTCA = CreateButton("Compile Total Cost Ascending", -1, SortTypes.TOTALCOST, 1, 100, 300, 325, 50);
-        JButton CTCD = CreateButton("Compile Total Cost Descending", -1, SortTypes.TOTALCOST, -1,800 , 300, 325, 50);
-        JButton CACA = CreateButton("Compile Average LT Cost Ascending", -1, SortTypes.AVGLTCOST, 1, 100, 400, 325, 50);
-        JButton CACD = CreateButton("Compile Average LT Cost Descending", -1, SortTypes.AVGLTCOST, -1,800 , 400, 325, 50);
-        JButton CKLA = CreateButton("Compile Km Per Liter Ascending", -1, SortTypes.KMPERLITER, 1, 100, 500, 325, 50);
-        JButton CKLD = CreateButton("Compile Km Per Liter Descending", -1, SortTypes.KMPERLITER, -1,800 , 500, 325, 50);
+        JButton CFA = CreateButton("Compile Fleet Ascending", amnt, SortTypes.FLEET, 1, 100, 100, 325, 50);
+        JButton CFD = CreateButton("Compile Fleet Descending", amnt, SortTypes.FLEET, -1, 800, 100, 325, 50);
+        JButton CLA = CreateButton("Compile Liter Ascending", amnt, SortTypes.LITERS, 1, 100, 200, 325, 50);
+        JButton CLD = CreateButton("Compile Liter Descending", amnt, SortTypes.LITERS, -1,800 , 200, 325, 50);
+        JButton CTCA = CreateButton("Compile Total Cost Ascending", amnt, SortTypes.TOTALCOST, 1, 100, 300, 325, 50);
+        JButton CTCD = CreateButton("Compile Total Cost Descending", amnt, SortTypes.TOTALCOST, -1,800 , 300, 325, 50);
+        JButton CACA = CreateButton("Compile Average LT Cost Ascending", amnt, SortTypes.AVGLTCOST, 1, 100, 400, 325, 50);
+        JButton CACD = CreateButton("Compile Average LT Cost Descending", amnt, SortTypes.AVGLTCOST, -1,800 , 400, 325, 50);
+        JButton CKLA = CreateButton("Compile Km Per Liter Ascending", amnt, SortTypes.KMPERLITER, 1, 100, 500, 325, 50);
+        JButton CKLD = CreateButton("Compile Km Per Liter Descending", amnt, SortTypes.KMPERLITER, -1,800 , 500, 325, 50);
 
 
+        JLabel amountInputExplanation = new JLabel();
+        amountInputExplanation.setBounds(540,460, 150, 50);
+        amountInputExplanation.setForeground(new Color(0x000000));
+        amountInputExplanation.setText("[-1] ALL | [>0] RANGE");
+        amountInputExplanation.setFont(new Font("Arial", Font.BOLD, 15));
+
+        amountInput = new JTextField("-1");
+        amountInput.setHorizontalAlignment(JTextField.CENTER);
+        amountInput.setBounds(540,500, 150, 50);
+        amountInput.setActionCommand("UpdateAmount");
+        amountInput.addActionListener(this);
+
+        JButton ConfirmAmount = new JButton();
+        ConfirmAmount.setHorizontalAlignment(JTextField.CENTER);
+        ConfirmAmount.setBounds(540,600, 150, 50);
+        ConfirmAmount.setActionCommand("ConfirmAmount");
+        ConfirmAmount.setText("CONFIRM");
+        ConfirmAmount.setFont(new Font("Arial", Font.BOLD, 20));
+        ConfirmAmount.addActionListener(this);
 
         secondFrame = new JFrame();
         secondFrame.setTitle("Average Fuel");
@@ -120,6 +140,9 @@ public class UI implements ActionListener {
         secondFrame.add(CKLA);
         secondFrame.add(CKLD);
 
+        secondFrame.add(amountInputExplanation);
+        secondFrame.add(amountInput);
+        secondFrame.add(ConfirmAmount);
 
         secondFrame.add(title);
     }
@@ -151,6 +174,9 @@ public class UI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if(e.getActionCommand() == "ConfirmAmount"){
+            amnt = Integer.parseInt(amountInput.getText());
+            //System.out.println(amnt);
+        }
     }
 }
