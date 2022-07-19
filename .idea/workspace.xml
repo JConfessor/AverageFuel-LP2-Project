@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3eeecd7-ba78-404e-b9b6-e4971357efcf" name="Changes" comment="feat: Added ClearConsole">
+    <list default="true" id="c3eeecd7-ba78-404e-b9b6-e4971357efcf" name="Changes" comment="feat: Added amount option">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/file/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/file/Console.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/ui/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/ui/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/vehicle/EscortVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/vehicle/EscortVehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +83,10 @@
       <workItem from="1657908364555" duration="24000" />
       <workItem from="1657908859271" duration="1080000" />
       <workItem from="1657934595171" duration="803000" />
-      <workItem from="1658080556253" duration="29972000" />
+      <workItem from="1658080556253" duration="30241000" />
+      <workItem from="1658112434432" duration="264000" />
+      <workItem from="1658145949939" duration="270000" />
+      <workItem from="1658188705371" duration="3886000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Small fixes in general">
       <created>1658075711049</created>
@@ -149,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658109269867</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat: Added amount option">
+      <created>1658111037325</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1658111037325</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +185,7 @@
     <MESSAGE value="fix: Removed errors" />
     <MESSAGE value="feat: Added UI" />
     <MESSAGE value="feat: Added ClearConsole" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Added ClearConsole" />
+    <MESSAGE value="feat: Added amount option" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Added amount option" />
   </component>
 </project>
