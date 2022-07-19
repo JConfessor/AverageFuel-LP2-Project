@@ -9,9 +9,7 @@ import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class UI implements ActionListener {
 
@@ -20,7 +18,7 @@ public class UI implements ActionListener {
 
 
     private String path;
-    private int amnt = -1;
+    private int amount = -1;
     private JTextField amountInput;
     JFrame frame;
     JFrame secondFrame;
@@ -42,11 +40,11 @@ public class UI implements ActionListener {
         title.setIconTextGap(100);
 
         JButton fileChooserButton = new JButton();
-        fileChooserButton.setBounds(540, 335, 200, 50);
+        fileChooserButton.setBounds(140, 150, 200, 30);
         fileChooserButton.addActionListener(e -> PromptFileChooser());
-        fileChooserButton.setText("Choose file");
+        fileChooserButton.setText("Abrir arquivo");
         fileChooserButton.setFocusable(false);
-        fileChooserButton.setFont(new Font("Arial", Font.BOLD, 20));
+        fileChooserButton.setFont(new Font("Arial", Font.BOLD, 15));
         fileChooserButton.setForeground(new Color(0x000000));
 
         frame = new JFrame();
@@ -54,9 +52,10 @@ public class UI implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setVisible(true);
-        frame.setSize(1280, 720);
+        frame.setSize(500, 300);
         frame.setIconImage(icon.getImage());
         frame.getContentPane().setBackground(new Color(0xFFFFFF));
+        frame.setResizable(true);
 
         frame.add(fileChooserButton);
         frame.add(title);
@@ -67,7 +66,7 @@ public class UI implements ActionListener {
         btn.setBounds(x, y, w, h);
         btn.addActionListener(e -> {
             try {
-                Compile(amnt, CTYPE, CSortOrder);
+                Compile(amount, CTYPE, CSortOrder);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -90,35 +89,35 @@ public class UI implements ActionListener {
         title.setFont(new Font("Arial", Font.BOLD, 150));
         title.setIconTextGap(100);
 
-        JButton CFA = CreateButton("Compile Fleet Ascending", amnt, SortTypes.FLEET, 1, 100, 100, 325, 50);
-        JButton CFD = CreateButton("Compile Fleet Descending", amnt, SortTypes.FLEET, -1, 800, 100, 325, 50);
-        JButton CLA = CreateButton("Compile Liter Ascending", amnt, SortTypes.LITERS, 1, 100, 200, 325, 50);
-        JButton CLD = CreateButton("Compile Liter Descending", amnt, SortTypes.LITERS, -1,800 , 200, 325, 50);
-        JButton CTCA = CreateButton("Compile Total Cost Ascending", amnt, SortTypes.TOTALCOST, 1, 100, 300, 325, 50);
-        JButton CTCD = CreateButton("Compile Total Cost Descending", amnt, SortTypes.TOTALCOST, -1,800 , 300, 325, 50);
-        JButton CACA = CreateButton("Compile Average LT Cost Ascending", amnt, SortTypes.AVGLTCOST, 1, 100, 400, 325, 50);
-        JButton CACD = CreateButton("Compile Average LT Cost Descending", amnt, SortTypes.AVGLTCOST, -1,800 , 400, 325, 50);
-        JButton CKLA = CreateButton("Compile Km Per Liter Ascending", amnt, SortTypes.KMPERLITER, 1, 100, 500, 325, 50);
-        JButton CKLD = CreateButton("Compile Km Per Liter Descending", amnt, SortTypes.KMPERLITER, -1,800 , 500, 325, 50);
+        JButton CFA = CreateButton("Gerar tabela - Frota Crescente", amount, SortTypes.FLEET, 1, 100, 100, 325, 30);
+        JButton CFD = CreateButton("Gerar tabela - Frota Decrescente", amount, SortTypes.FLEET, -1, 800, 100, 325, 30);
+        JButton CLA = CreateButton("Gerar tabela - Litros Crescente", amount, SortTypes.LITERS, 1, 100, 150, 325, 30);
+        JButton CLD = CreateButton("Gerar tabela - Litros Decrescente", amount, SortTypes.LITERS, -1,800 , 150, 325, 30);
+        JButton CTCA = CreateButton("Gerar tabela - Custo Crescente", amount, SortTypes.TOTALCOST, 1, 100, 200, 325, 30);
+        JButton CTCD = CreateButton("Gerar tabela - Custo Decrescente", amount, SortTypes.TOTALCOST, -1,800 , 200, 325, 30);
+        JButton CACA = CreateButton("Gerar tabela - Valor p/Litro Crescente", amount, SortTypes.AVGLTCOST, 1, 100, 250, 325, 30);
+        JButton CACD = CreateButton("Gerar tabela - Valor p/Litro Decrescente", amount, SortTypes.AVGLTCOST, -1,800 , 250, 325, 30);
+        JButton CKLA = CreateButton("Gerar tabela - Média KM/L Crescente", amount, SortTypes.KMPERLITER, 1, 100, 300, 325, 30);
+        JButton CKLD = CreateButton("Gerar tabela - Média KM/L Decrescente", amount, SortTypes.KMPERLITER, -1,800 , 300, 325, 30);
 
 
         JLabel amountInputExplanation = new JLabel();
-        amountInputExplanation.setBounds(540,460, 150, 50);
+        amountInputExplanation.setBounds(525,460, 250, 50);
         amountInputExplanation.setForeground(new Color(0x000000));
-        amountInputExplanation.setText("[-1] ALL | [>0] RANGE");
+        amountInputExplanation.setText("[-1] TODOS | [>0] ORDEM");
         amountInputExplanation.setFont(new Font("Arial", Font.BOLD, 15));
 
         amountInput = new JTextField("-1");
         amountInput.setHorizontalAlignment(JTextField.CENTER);
-        amountInput.setBounds(540,500, 150, 50);
+        amountInput.setBounds(540,500, 150, 30);
         amountInput.setActionCommand("UpdateAmount");
         amountInput.addActionListener(this);
 
         JButton ConfirmAmount = new JButton();
         ConfirmAmount.setHorizontalAlignment(JTextField.CENTER);
-        ConfirmAmount.setBounds(540,600, 150, 50);
+        ConfirmAmount.setBounds(540,532, 150, 20);
         ConfirmAmount.setActionCommand("ConfirmAmount");
-        ConfirmAmount.setText("CONFIRM");
+        ConfirmAmount.setText("OK");
         ConfirmAmount.setFont(new Font("Arial", Font.BOLD, 20));
         ConfirmAmount.addActionListener(this);
 
@@ -173,14 +172,11 @@ public class UI implements ActionListener {
         XLSX reader = new XLSX(path);
         var escortvehicles = reader.readXLSX();
         Console TestConsole = new Console();
-        //TestConsole.PrintMap(escortvehicles, Amount, SortType, SortOrder);
         TableModel model = TestConsole.table(escortvehicles, Amount, SortType, SortOrder);
         if(ui3 != null){
             ui3.dispose();
-            ui3 = ThirdUI(model);
-        }else{
-            ui3 = ThirdUI(model);
         }
+        ui3 = ThirdUI(model);
     }
 
     private void PromptFileChooser() {
@@ -204,7 +200,7 @@ public class UI implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand() == "ConfirmAmount"){
-            amnt = Integer.parseInt(amountInput.getText());
+            amount = Integer.parseInt(amountInput.getText());
             //System.out.println(amnt);
         }
     }
