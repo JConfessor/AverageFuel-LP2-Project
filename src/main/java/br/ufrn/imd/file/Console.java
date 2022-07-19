@@ -3,20 +3,18 @@ package br.ufrn.imd.file;
 import br.ufrn.imd.math.SortTypes;
 import br.ufrn.imd.vehicle.EscortVehicle;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import br.ufrn.imd.math.Sort;
 
-import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class Console {
 
     public void PrintMap(Map m, int amountToPrint, SortTypes sortingType, int SortOrder) {
         Sort Sorter = new Sort();
-        table(m,amountToPrint,sortingType,SortOrder);
+        //table(m,amountToPrint,sortingType,SortOrder);
         //ClearConsole();
         for (EscortVehicle ev : Sorter.Sort(m, sortingType, SortOrder)) {
             if (amountToPrint == 0) {
@@ -33,31 +31,31 @@ public class Console {
         }
     }
 
-    public void table(Map m, int amountToPrint, SortTypes sortingType, int SortOrder){
+    public DefaultTableModel table(Map m, int amountToPrint, SortTypes sortingType, int SortOrder){
         Sort Sorter = new Sort();
-        Object[] columns = {"1","2","3","4","5","6","7","8"};
+        Object[] columns = {"FT","LICENSE PLATE","VEHICLE MODEL","LITERS","MONTHLY ODOMETER","KM/L","AVG LT COST","TOTAL COST"};
         List<EscortVehicle> data = Sorter.Sort(m, sortingType, SortOrder);
         DefaultTableModel model = new DefaultTableModel(new Object[0][0], columns);
+
         for(EscortVehicle adv : data){
+            if(amountToPrint == 0){
+                break;
+            }
             Object[] o = new Object[8];
-            o[0] = adv.getVehicleModel();
-            o[1] = adv.getKmPerLiter();
-            o[2] = adv.getLiters();
-            o[3] = adv.getFleetNumber();
-            o[4] = adv.getAverageLtCost();
-            o[5] = adv.getTotalCost();
-            o[6] = adv.getMonthlyOdometer();
-            o[7] = adv.getLicensePlate();
+            o[0] = adv.getFleetNumber();
+            o[1] = adv.getLicensePlate();
+            o[2] = adv.getVehicleModel();
+            o[3] = String.format("%,.2f", adv.getLiters());
+            o[4] = adv.getMonthlyOdometer();
+            o[5] = String.format("%,.3f", adv.getKmPerLiter());
+            o[6] = String.format("%,.2f", adv.getAverageLtCost());
+            o[7] = String.format("%,.2f", adv.getTotalCost());
             model.addRow(o);
+            amountToPrint -= 1;
         }
 
 
-        JTable jtable = new JTable(model);
-        JFrame jframe = new JFrame();
-        jframe.setSize(455,300);
-        jframe.add(jtable);
-        jframe.setVisible(true);
-
+        return model;
     }
 
     public static void ClearConsole(){

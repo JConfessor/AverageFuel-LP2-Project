@@ -5,6 +5,7 @@ import br.ufrn.imd.file.XLSX;
 import br.ufrn.imd.math.SortTypes;
 
 import javax.swing.*;
+import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,6 +24,7 @@ public class UI implements ActionListener {
     private JTextField amountInput;
     JFrame frame;
     JFrame secondFrame;
+    JFrame ui3;
     public UI(){
         InitialUI();
         //SecondUI();
@@ -147,11 +149,38 @@ public class UI implements ActionListener {
         secondFrame.add(title);
     }
 
+    private JFrame ThirdUI(TableModel model){
+        JTable jtable = new JTable(model);
+        jtable.setEnabled(false);
+
+        JScrollPane scroll = new JScrollPane(jtable);
+
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        JFrame jframe = new JFrame();
+        jframe.setTitle("Average Fuel Result");
+        jframe.setSize(1280,420);
+        jframe.setIconImage(icon.getImage());
+        jframe.add(scroll);
+        jframe.setVisible(true);
+        jframe.setResizable(false);
+
+        return jframe;
+    }
+
     private void Compile(int Amount, SortTypes SortType, int SortOrder) throws IOException {
         XLSX reader = new XLSX(path);
         var escortvehicles = reader.readXLSX();
         Console TestConsole = new Console();
-        TestConsole.PrintMap(escortvehicles, Amount, SortType, SortOrder);
+        //TestConsole.PrintMap(escortvehicles, Amount, SortType, SortOrder);
+        TableModel model = TestConsole.table(escortvehicles, Amount, SortType, SortOrder);
+        if(ui3 != null){
+            ui3.dispose();
+            ui3 = ThirdUI(model);
+        }else{
+            ui3 = ThirdUI(model);
+        }
     }
 
     private void PromptFileChooser() {
@@ -167,7 +196,7 @@ public class UI implements ActionListener {
             SecondUI();
             //System.exit(0);
         } else {
-            System.out.printf("No file was selected");
+            System.out.println("No file was selected");
             System.exit(1);
         }
     }
