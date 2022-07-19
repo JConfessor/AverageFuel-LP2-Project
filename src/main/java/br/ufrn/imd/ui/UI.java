@@ -15,8 +15,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class UI implements ActionListener {
 
-    ImageIcon logo = new ImageIcon("./src/main/resources/logo2.jpg");
-    ImageIcon icon = new ImageIcon("./src/main/resources/icon.jpeg");
+    ImageIcon logo = new ImageIcon(getClass().getResource("/logo2.jpg"));
+    ImageIcon icon = new ImageIcon(getClass().getResource("/icon.jpeg"));
 
 
     private String path;
