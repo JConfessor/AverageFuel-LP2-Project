@@ -14,8 +14,6 @@ public class Console {
 
     public void PrintMap(Map m, int amountToPrint, SortTypes sortingType, int SortOrder) {
         Sort Sorter = new Sort();
-        //table(m,amountToPrint,sortingType,SortOrder);
-        //ClearConsole();
         for (EscortVehicle ev : Sorter.Sort(m, sortingType, SortOrder)) {
             if (amountToPrint == 0) {
                 break;
@@ -33,7 +31,7 @@ public class Console {
 
     public DefaultTableModel table(Map m, int amountToPrint, SortTypes sortingType, int SortOrder){
         Sort Sorter = new Sort();
-        Object[] columns = {"FT","LICENSE PLATE","VEHICLE MODEL","LITERS","MONTHLY ODOMETER","KM/L","AVG LT COST","TOTAL COST"};
+        Object[] columns = {"FROTA","PLACA","MODELO VEIC","TOTAL LITROS","ODOMETRO MENSAL","MÉDIA KM/L","MÉDIA PREÇO/L","TOTAL GASTO"};
         List<EscortVehicle> data = Sorter.Sort(m, sortingType, SortOrder);
         DefaultTableModel model = new DefaultTableModel(new Object[0][0], columns);
 
@@ -45,11 +43,11 @@ public class Console {
             o[0] = adv.getFleetNumber();
             o[1] = adv.getLicensePlate();
             o[2] = adv.getVehicleModel();
-            o[3] = String.format("%,.2f", adv.getLiters());
+            o[3] = String.format("%,.2fL", adv.getLiters());
             o[4] = adv.getMonthlyOdometer();
-            o[5] = String.format("%,.3f", adv.getKmPerLiter());
-            o[6] = String.format("%,.2f", adv.getAverageLtCost());
-            o[7] = String.format("%,.2f", adv.getTotalCost());
+            o[5] = String.format("%,.2f KM/L", adv.getKmPerLiter());
+            o[6] = String.format("R$ %,.2f", adv.getAverageLtCost());
+            o[7] = String.format("R$ %,.2f", adv.getTotalCost());
             model.addRow(o);
             amountToPrint -= 1;
         }

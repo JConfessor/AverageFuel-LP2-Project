@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c3eeecd7-ba78-404e-b9b6-e4971357efcf" name="Changes" comment="feat: Added amount option">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/file/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/file/Console.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/ui/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrn/imd/ui/UI.java" afterDir="false" />
     </list>
