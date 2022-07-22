@@ -1,6 +1,6 @@
 ## 🎬 LINK DE ACESSO AO YOUTUBE
 
-~Adicionar link~
+`https://youtu.be/MVB3WkTn2aM`
 
 
 ## 👨‍🦲 PARTICIPANTES
@@ -14,7 +14,7 @@
 O projeto AverageFuel tem como principal intuito extrair métricas de uma base de dados em uma planilha de excel.
 Ele foi pensado visando auxiliar uma empresa de escolta de cargas, onde é preciso ter um controle de abastecimento dos veículos que são utilizados. 
 
-Os dados são retirados da plataforma de abastecimento TicketLok, que fornece para seus clientes um relatório de todas as transações efetuadas em um lapso temporal, 
+Os dados são retirados da plataforma de abastecimento TicketLog, que fornece para seus clientes um relatório de todas as transações efetuadas em um lapso temporal, 
 dessa forma, ao abrir o relatório, há diversas informações desnecessárias para o gestor.
 
 O programa converte essa base de dados em tabelas intuitivas e de fácil visualização, tornando mais rápido o trabalho do gestor ou responsável
